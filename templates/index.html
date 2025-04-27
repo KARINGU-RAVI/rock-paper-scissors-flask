@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Game</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Body background with image */
+        body {
+            background: url('https://media.istockphoto.com/id/1177595975/vector/horizontal-grunge-grungy-vector-illustration-of-an-empty-smudged-blue-colored-textured.jpg?s=612x612&w=0&k=20&c=L8XvUl8uYy0WNPtJECdX3GAjyibGYLkVwXVb88NNX88=') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Game container with semi-transparent background */
+        .game-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Card inside container */
+        .card {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 15px;
+        }
+
+        /* Button transitions */
+        .btn {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Result text animation */
+        .result-text {
+            animation: pop 0.8s ease forwards;
+            transform: scale(0);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0); }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .game-container {
+                padding: 20px;
+            }
+            .btn {
+                margin: 10px 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container text-center">
+        <h1 class="mb-4">Rock, Paper, Scissors</h1>
+
+        {% if result %}
+            <div class="card shadow p-4 mb-3">
+                <h4 class="mb-3">Result:</h4>
+                <p><strong>You chose:</strong> {{ user_choice }}</p>
+                <p><strong>Computer chose:</strong> {{ computer_choice }}</p>
+                <h2 class="text-primary result-text">{{ result }}</h2>
+            </div>
+            <div class="mt-4">
+                <p class="mb-3">Play Again:</p>
+                <form method="POST">
+                    <button type="submit" name="choice" value="Rock" class="btn btn-danger m-2">Rock</button>
+                    <button type="submit" name="choice" value="Paper" class="btn btn-success m-2">Paper</button>
+                    <button type="submit" name="choice" value="Scissors" class="btn btn-warning m-2">Scissors</button>
+                </form>
+            </div>
+        {% else %}
+            <div class="card shadow p-4 mb-3">
+                <h4 class="mb-4">Make your move!</h4>
+                <form method="POST">
+                    <button type="submit" name="choice" value="Rock" class="btn btn-danger m-2">Rock</button>
+                    <button type="submit" name="choice" value="Paper" class="btn btn-success m-2">Paper</button>
+                    <button type="submit" name="choice" value="Scissors" class="btn btn-warning m-2">Scissors</button>
+                </form>
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
