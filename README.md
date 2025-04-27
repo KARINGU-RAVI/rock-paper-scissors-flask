@@ -6,7 +6,7 @@ This is a simple and fun web application built with Python Flask where you can p
 The user selects an option, and the computer randomly picks its move.
 The game then declares the winner and offers the user an option to play again.
 
-✨ Features
+**✨ Features**
 User vs Computer gameplay
 
 Random choice generation for the computer
@@ -21,7 +21,9 @@ Smooth animations and transitions for a better user experience
 
 Background image and stylish UI
 
-🛠 Technologies Used
+
+**
+🛠 Technologies Used**
 Python 3
 
 Flask (for backend)
