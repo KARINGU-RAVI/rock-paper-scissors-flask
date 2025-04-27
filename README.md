@@ -22,8 +22,8 @@ Smooth animations and transitions for a better user experience
 Background image and stylish UI
 
 
-**
-🛠 Technologies Used**
+**🛠 Technologies Used**
+
 Python 3
 
 Flask (for backend)
